@@ -1,0 +1,25 @@
+[Unit]
+Description=Shoulder Elbow Consultant website
+After=network.target
+
+[Service]
+Type=simple
+User=sec-deploy
+Group=sec-deploy
+WorkingDirectory=/opt/shoulder-elbow/current
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3091
+EnvironmentFile=-/opt/shoulder-elbow/shared/environment
+ExecStart=/opt/shoulder-elbow/node/bin/node server.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/shoulder-elbow
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

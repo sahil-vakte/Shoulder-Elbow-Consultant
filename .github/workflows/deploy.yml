@@ -1,0 +1,66 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shoulder-elbow-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      NEXT_PUBLIC_SITE_URL: https://shoulderelbowconsultant.co.uk
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Package standalone application
+        run: |
+          cp -r public .next/standalone/
+          cp -r .next/static .next/standalone/.next/
+          printf '{"commit":"%s"}\n' "$GITHUB_SHA" > .next/standalone/public/deployment.json
+          tar -czf release.tar.gz -C .next/standalone .
+      - name: Smoke test production build
+        run: |
+          HOSTNAME=127.0.0.1 PORT=3099 node .next/standalone/server.js > /tmp/sec-smoke.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3099/ -o /dev/null; then break; fi
+            sleep 1
+          done
+          for route in / /shoulder /elbow /conditions/tennis-elbow /contact /images/everyday-movement.webp /sitemap.xml; do
+            curl --fail --silent --show-error "http://127.0.0.1:3099$route" -o /dev/null
+          done
+      - name: Deploy verified release
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/sec_deploy
+          chmod 600 ~/.ssh/sec_deploy
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          trap 'rm -f ~/.ssh/sec_deploy' EXIT
+          target="$DEPLOY_USER@$DEPLOY_HOST"
+          scp -i ~/.ssh/sec_deploy -o BatchMode=yes release.tar.gz "$target:/opt/shoulder-elbow/incoming/$GITHUB_SHA.tar.gz"
+          ssh -i ~/.ssh/sec_deploy -o BatchMode=yes "$target" "bash -s -- '$GITHUB_SHA'" < scripts/deploy.sh
+          curl --fail --silent --show-error "http://$DEPLOY_HOST:8080/deployment.json" | grep "$GITHUB_SHA"

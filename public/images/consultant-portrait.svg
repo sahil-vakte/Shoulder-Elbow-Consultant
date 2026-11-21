@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef2fa"/><stop offset="1" stop-color="#c9d2f1"/></linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe6f3"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27466d"/><stop offset="1" stop-color="#142942"/></linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <g opacity=".35" stroke="#6b80cf" stroke-width="1">
+    <path d="M0 120H600M0 240H600M0 360H600M0 480H600M0 600H600M120 0V750M240 0V750M360 0V750M480 0V750"/>
+  </g>
+  <circle cx="300" cy="270" r="112" fill="url(#skin)"/>
+  <path d="M90 750 C 100 560, 190 470, 300 470 C 410 470, 500 560, 510 750 Z" fill="url(#coat)" stroke="#b8bbbb"/>
+  <path d="M300 470 L 250 750 M300 470 L 350 750" stroke="#b8bbbb" stroke-width="3"/>
+  <path d="M232 488 C 260 560, 340 560, 368 488" fill="none" stroke="#314490" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="368" cy="600" r="18" fill="#314490"/>
+  <text x="300" y="712" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700" fill="#142942" letter-spacing="2">CONSULTANT PHOTO</text>
+</svg>
