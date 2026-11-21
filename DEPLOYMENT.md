@@ -6,6 +6,7 @@ Push to `main` to build, smoke test and deploy via GitHub Actions. Pull requests
 - Domain: https://shoulderelbowconsultant.co.uk
 - IP preview: http://92.205.160.39:8080
 - Runtime: Node 22, Next.js standalone, systemd, Nginx
+- Resource limits: 512 MiB maximum memory and one CPU worth of execution, to contain this app on the shared server.
 - Service: `shoulder-elbow.service`, bound to `127.0.0.1:3091`
 - Releases: `/opt/shoulder-elbow/releases/<commit>`; active release: `/opt/shoulder-elbow/current`
 - Runtime environment: `/opt/shoulder-elbow/shared/environment`
