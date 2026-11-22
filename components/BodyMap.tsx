@@ -34,7 +34,7 @@ export default function BodyMap() {
         <div className="relative mt-2 grid gap-2">
           {zones.map((z) => (
             <button key={z.id} onClick={() => setActive(z.id)}
-              aria-pressed={z.id === active} className={`rounded-lg px-4 py-3 text-left text-sm font-medium transition ${z.id === active ? "bg-aqua-400 text-navy-900" : "bg-white/10 text-white/75 hover:bg-white/20"}`}>
+              aria-pressed={z.id === active} className={`rounded-lg px-4 py-3 text-left text-sm font-medium transition ${z.id === active ? "bg-sky-400 text-navy-900" : "bg-white/10 text-white/75 hover:bg-white/20"}`}>
               {z.label}
             </button>
           ))}
@@ -44,17 +44,17 @@ export default function BodyMap() {
       <div className="flex flex-col">
         <AnimatePresence mode="wait">
           <motion.div key={zone.id} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="flex flex-1 flex-col">
-            <p className="text-sm font-semibold uppercase tracking-widest text-aqua-400">{zone.label}</p>
-            <h3 className="mt-2 font-display text-2xl font-bold !text-white">Conditions that commonly cause pain here</h3>
-            <ul className="mt-6 grid flex-1 gap-3">
+            <p className="text-sm font-semibold uppercase tracking-widest text-sky-400">{zone.label}</p>
+            <h3 className="mt-2 font-display text-2xl font-semibold !text-white">Conditions that commonly cause pain here</h3>
+            <ul className="mt-6 grid content-start gap-3">
               {list.map((c, i) => (
                 <motion.li key={c.slug} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.06 * i }}>
-                  <Link href={`/conditions/${c.slug}`} className="glass-dark group flex items-center justify-between gap-4 rounded-2xl p-5 transition hover:border-aqua-400/50 hover:bg-white/10">
+                  <Link href={`/conditions/${c.slug}`} className="glass-dark group flex items-center justify-between gap-4 rounded-2xl p-5 transition hover:border-sky-400/50 hover:bg-white/10">
                     <span>
                       <span className="block font-display text-lg font-semibold text-white">{c.name}</span>
                       <span className="mt-1 block text-sm text-white/65">{c.short}</span>
                     </span>
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white/10 text-aqua-400 transition group-hover:translate-x-1 group-hover:bg-aqua-400 group-hover:text-navy-900">
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white/10 text-sky-400 transition group-hover:translate-x-1 group-hover:bg-sky-400 group-hover:text-navy-900">
                       <ArrowRight className="size-4" />
                     </span>
                   </Link>

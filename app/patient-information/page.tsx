@@ -25,21 +25,21 @@ export default function Page() {
     <>
       <PageHero crumbs={[{ name: "Patient information", path: "/patient-information" }]} eyebrow="Before & after" title="Patient information" lead={<p>Everything you need to know about your consultation, preparing for treatment, and getting the best result from your recovery.</p>} />
       <Journey />
-      <section className="bg-ice-50 py-20">
+      <section className="bg-ice-50 section">
         <div className="container-x">
           <SectionHead eyebrow="Preparing" title="Practical tips" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {prep.map(({ i: Icon, t, d }, k) => (
               <Reveal key={t} delay={k * 0.05} className="card p-6">
                 <Icon className="size-7 text-royal-600" />
-                <h3 className="mt-4 font-display text-lg font-bold">{t}</h3>
+                <h3 className="mt-4 font-display text-lg font-semibold">{t}</h3>
                 <p className="mt-2 text-sm text-muted">{d}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
-      <section className="container-x py-20">
+      <section className="container-x section">
         <div className="prose prose-lg max-w-3xl prose-headings:font-display prose-headings:text-navy-800 prose-p:text-muted">
           <h2>After your operation</h2>
           <p>You'll receive written instructions tailored to your procedure, including sling use, wound care and an exercise sheet. Keep dressings dry until your wound check, usually at around 10–14 days.</p>

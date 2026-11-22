@@ -12,7 +12,7 @@ export function ConditionCard({ c }: { c: Condition }) {
         <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-royal-600 shadow-soft">{c.region}</span>
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-lg font-bold group-hover:text-royal-600">{c.name}</h3>
+        <h3 className="font-display text-lg font-semibold group-hover:text-royal-600">{c.name}</h3>
         {c.aka && <p className="text-xs font-medium text-muted">{c.aka}</p>}
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{c.short}</p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-royal-600">
@@ -42,7 +42,7 @@ export function TreatmentCard({ t }: { t: Treatment }) {
         </span>
         <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">{t.category}</span>
       </div>
-      <h3 className="relative mt-6 font-display text-lg font-bold group-hover:text-royal-600">{t.name}</h3>
+      <h3 className="relative mt-6 font-display text-lg font-semibold group-hover:text-royal-600">{t.name}</h3>
       <p className="relative mt-2 flex-1 text-sm leading-relaxed text-muted">{t.short}</p>
       <div className="relative mt-5 flex flex-wrap gap-2 text-xs text-muted">
         <span className="inline-flex items-center gap-1 rounded-full bg-ice-50 px-2.5 py-1"><Hospital className="size-3.5" /> {t.facts.stay}</span>

@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <JsonLd data={faqSchema(generalFaqs.flatMap((g) => g.items))} />
       <PageHero crumbs={[{ name: "FAQs", path: "/faqs" }]} eyebrow="Help centre" title="Frequently asked questions" />
-      <section className="container-x max-w-4xl space-y-14 py-16">
+      <section className="container-x max-w-4xl space-y-14 section">
         {generalFaqs.map((g) => (
           <div key={g.group}>
             <h2 className="h-section">{g.group}</h2>

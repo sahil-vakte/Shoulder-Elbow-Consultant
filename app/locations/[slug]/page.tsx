@@ -55,7 +55,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </PageHero>
 
-      <section className="container-x grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr]">
+      <section className="container-x grid gap-12 section lg:grid-cols-[1.3fr_1fr]">
         <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-navy-800 prose-p:text-muted">
           <h2>Private shoulder &amp; elbow care for {l.name}</h2>
           {l.intro.slice(1).map((p) => <p key={p.slice(0, 20)}>{p}</p>)}
@@ -68,7 +68,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <p className="text-xs font-semibold uppercase tracking-widest text-muted">Clinic details</p>
           {clinic && (
             <>
-              <p className="mt-3 font-display text-xl font-bold text-navy-800">{clinic.name}</p>
+              <p className="mt-3 font-display text-xl font-semibold text-navy-800">{clinic.name}</p>
               <ul className="mt-4 space-y-3 text-sm text-navy-800">
                 <li className="flex gap-3"><MapPin className="size-5 shrink-0 text-royal-600" />{clinic.address}, {clinic.town} {clinic.postcode}</li>
                 <li className="flex gap-3"><Clock className="size-5 shrink-0 text-royal-600" />{clinic.days}</li>
@@ -80,14 +80,14 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </Reveal>
       </section>
 
-      <section className="bg-ice-50 py-20">
+      <section className="bg-ice-50 section">
         <div className="container-x">
           <SectionHead eyebrow={`Why patients in ${l.name} choose us`} title="Specialist care, close to home" />
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
             {l.why.map((w, k) => (
               <Reveal key={w.title} delay={k * 0.08} className="card p-7">
-                <CheckCircle2 className="size-7 text-aqua-500" />
-                <h3 className="mt-4 font-display text-xl font-bold">{w.title}</h3>
+                <CheckCircle2 className="size-7 text-sky-500" />
+                <h3 className="mt-4 font-display text-xl font-semibold">{w.title}</h3>
                 <p className="mt-2 text-muted">{w.text}</p>
               </Reveal>
             ))}
@@ -95,13 +95,13 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <section className="container-x py-20">
+      <section className="container-x section">
         <SectionHead eyebrow="Conditions" title={`Shoulder & elbow conditions we treat in ${l.name}`} />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {popular.map((c) => (
             <li key={c.slug}>
               <Link href={`/conditions/${c.slug}`} className="card card-hover flex items-center justify-between p-5">
-                <span><span className="block font-display font-bold">{c.name} {l.name.split(" ")[0]}</span><span className="text-xs capitalize text-muted">{c.region}</span></span>
+                <span><span className="block font-display font-semibold">{c.name} {l.name.split(" ")[0]}</span><span className="text-xs capitalize text-muted">{c.region}</span></span>
                 <span className="text-royal-600">→</span>
               </Link>
             </li>
@@ -115,12 +115,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </p>
       </section>
 
-      <section className="container-x grid gap-12 pb-12 lg:grid-cols-[1fr_1.4fr]">
+      <section className="container-x grid gap-12 section lg:grid-cols-[1fr_1.4fr]">
         <SectionHead eyebrow="Local FAQs" title={`Seeing a specialist in ${l.name}`} />
         <Faqs items={l.faqs} />
-      </section>
-      <section className="container-x pb-4">
-        <p className="text-sm text-muted">
+        <p className="text-sm text-muted lg:col-span-2">
           Also serving:{" "}
           {locations.filter((x) => x.slug !== l.slug).map((x, i) => (
             <span key={x.slug}><Link href={`/locations/${x.slug}`} className="font-semibold text-royal-600 hover:underline">{x.name}</Link>{i === 0 ? " · " : ""}</span>

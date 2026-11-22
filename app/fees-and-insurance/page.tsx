@@ -24,13 +24,13 @@ export default function Page() {
   return (
     <>
       <PageHero crumbs={[{ name: "Fees & Insurance", path: "/fees-and-insurance" }]} eyebrow="Paying for treatment" title="Fees & insurance" lead={<p>Transparent pricing for self-funding patients, and straightforward claims if you have private medical insurance.</p>} />
-      <section className="container-x grid gap-8 py-16 lg:grid-cols-2">
+      <section className="container-x grid gap-8 section lg:grid-cols-2">
         <Reveal className="card p-8">
           <span className="grid size-12 place-items-center rounded-2xl bg-navy-800 text-white"><ShieldCheck className="size-6" /></span>
-          <h2 className="mt-5 font-display text-2xl font-bold">Using private medical insurance</h2>
+          <h2 className="mt-5 font-display text-2xl font-semibold">Using private medical insurance</h2>
           <ol className="mt-5 space-y-4">
             {["Ask your GP or physiotherapist for a referral letter", "Call your insurer to confirm cover and obtain an authorisation (pre-auth) number", "Book your appointment and give us your membership and authorisation numbers", "We bill your insurer directly — you only pay any excess or shortfall"].map((s, i) => (
-              <li key={s} className="flex gap-4"><span className="grid size-8 shrink-0 place-items-center rounded-full bg-ice-100 font-display text-sm font-bold text-royal-600">{i + 1}</span><span className="text-muted">{s}</span></li>
+              <li key={s} className="flex gap-4"><span className="grid size-8 shrink-0 place-items-center rounded-full bg-ice-100 font-display text-sm font-semibold text-royal-600">{i + 1}</span><span className="text-muted">{s}</span></li>
             ))}
           </ol>
           <div className="mt-8">
@@ -39,26 +39,26 @@ export default function Page() {
           </div>
         </Reveal>
         <Reveal delay={0.1} className="card p-8">
-          <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-royal-600 to-aqua-500 text-white"><CreditCard className="size-6" /></span>
-          <h2 className="mt-5 font-display text-2xl font-bold">Self-pay</h2>
+          <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-royal-600 to-sky-500 text-white"><CreditCard className="size-6" /></span>
+          <h2 className="mt-5 font-display text-2xl font-semibold">Self-pay</h2>
           <p className="mt-3 text-muted">No referral needed. You'll receive a written, all-inclusive quote before any procedure, so there are no surprises.</p>
           <dl className="mt-6 divide-y divide-ice-200 rounded-2xl border border-ice-200">
             {fees.map((f) => (
               <div key={f.k} className="flex items-center justify-between gap-4 p-4">
                 <dt><span className="block font-semibold text-navy-800">{f.k}</span><span className="text-xs text-muted">{f.n}</span></dt>
-                <dd className="font-display text-lg font-bold text-royal-600">{f.v}</dd>
+                <dd className="font-display text-lg font-semibold text-royal-600">{f.v}</dd>
               </div>
             ))}
           </dl>
           <ul className="mt-6 space-y-2 text-sm text-muted">
-            <li className="flex gap-2"><CheckCircle2 className="size-4 text-aqua-500" /> Fixed-price surgery packages</li>
-            <li className="flex gap-2"><CheckCircle2 className="size-4 text-aqua-500" /> Scans and tests quoted in advance</li>
-            <li className="flex gap-2"><FileCheck2 className="size-4 text-aqua-500" /> Finance options may be available via the hospital</li>
+            <li className="flex gap-2"><CheckCircle2 className="size-4 text-sky-500" /> Fixed-price surgery packages</li>
+            <li className="flex gap-2"><CheckCircle2 className="size-4 text-sky-500" /> Scans and tests quoted in advance</li>
+            <li className="flex gap-2"><FileCheck2 className="size-4 text-sky-500" /> Finance options may be available via the hospital</li>
           </ul>
           <Link href="/contact" className="btn-primary mt-8">Request a quote</Link>
         </Reveal>
       </section>
-      <section className="container-x grid gap-12 py-12 lg:grid-cols-[1fr_1.4fr]">
+      <section className="container-x grid gap-12 section lg:grid-cols-[1fr_1.4fr]">
         <SectionHead eyebrow="FAQs" title="Fees & insurance questions" />
         <Faqs items={generalFaqs[1].items} />
       </section>

@@ -32,8 +32,8 @@ export default function EnquiryForm({ compact }: { compact?: boolean }) {
   if (status === "ok")
     return (
       <div className="card flex flex-col items-center p-10 text-center">
-        <CheckCircle2 className="size-14 text-aqua-500" />
-        <h3 className="mt-4 font-display text-2xl font-bold">Thank you — we've received your enquiry</h3>
+        <CheckCircle2 className="size-14 text-sky-500" />
+        <h3 className="mt-4 font-display text-2xl font-semibold">Thank you — we've received your enquiry</h3>
         <p className="mt-2 max-w-md text-muted">The secretary will contact you within one working day to arrange your appointment.</p>
       </div>
     );

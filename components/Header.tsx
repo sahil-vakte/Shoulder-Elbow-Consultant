@@ -40,7 +40,7 @@ export default function Header() {
           <p>Private consultations in Leicester · Nuneaton &amp; Hinckley · Warwickshire</p>
           <div className="flex items-center gap-5">
             <span>Self-pay &amp; all major insurers</span>
-            <a href={site.contact.phoneHref} className="flex items-center gap-1.5 font-semibold text-white hover:text-aqua-400">
+            <a href={site.contact.phoneHref} className="flex items-center gap-1.5 font-semibold text-white hover:text-sky-400">
               <Phone className="size-3.5" /> {site.contact.phone}
             </a>
           </div>
@@ -120,10 +120,10 @@ export default function Header() {
                     </div>
                     <div className="flex flex-col justify-between rounded-2xl bg-navy-800 p-5 text-white">
                       <div>
-                        <p className="font-display text-lg font-bold">Not sure what's wrong?</p>
+                        <p className="font-display text-lg font-semibold">Not sure what's wrong?</p>
                         <p className="mt-2 text-sm text-white/70">Use our interactive symptom map or speak to the secretary.</p>
                       </div>
-                      <Link href={hover} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-aqua-400">
+                      <Link href={hover} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-400">
                         Explore the {hover === "/shoulder" ? "shoulder" : "elbow"} <ArrowRight className="size-4" />
                       </Link>
                     </div>
@@ -147,7 +147,7 @@ export default function Header() {
               {[{ label: "Home", href: "/" }, ...nav, { label: "Patient information", href: "/patient-information" }, { label: "FAQs", href: "/faqs" }, { label: "Blog", href: "/blog" }, { label: "Contact", href: "/contact" }].map((n, i) => (
                 <motion.li key={n.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.03 * i }}>
                   <Link href={n.href} className="flex items-center justify-between border-b border-white/10 py-4 font-display text-2xl font-semibold text-white">
-                    {n.label} <ArrowRight className="size-5 text-aqua-400" />
+                    {n.label} <ArrowRight className="size-5 text-sky-400" />
                   </Link>
                 </motion.li>
               ))}

@@ -27,7 +27,7 @@ const ELBOW_SPOTS: Record<string, { x: number; y: number; label: string }> = {
 export default function JointIllustration({ region, spot, className, title, dark }: Props) {
   const spots = region === "shoulder" ? SHOULDER_SPOTS : ELBOW_SPOTS;
   const s = spot ? spots[spot] : undefined;
-  const stroke = dark ? "#c9d2f1" : "#142942";
+  const stroke = dark ? "#c9d2f1" : "#1f3a5c";
   const id = useId().replace(/:/g, "");
   return (
     <svg viewBox="0 0 400 400" className={className} role="img" aria-label={title ?? `${region} anatomy illustration${s ? ` highlighting the ${s.label}` : ""}`}>
@@ -41,8 +41,8 @@ export default function JointIllustration({ region, spot, className, title, dark
           <stop offset="1" stopColor="#a86659" stopOpacity=".6" />
         </linearGradient>
         <radialGradient id={`glow-${id}`}>
-          <stop offset="0" stopColor="#3cc6c9" stopOpacity=".55" />
-          <stop offset="1" stopColor="#3cc6c9" stopOpacity="0" />
+          <stop offset="0" stopColor="#7d8fd0" stopOpacity=".55" />
+          <stop offset="1" stopColor="#7d8fd0" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -91,11 +91,11 @@ export default function JointIllustration({ region, spot, className, title, dark
       {s && (
         <g>
           <circle cx={s.x} cy={s.y} r="46" fill={`url(#glow-${id})`} />
-          <circle cx={s.x} cy={s.y} r="10" fill="#1fa9ad" opacity=".35" className="origin-center" style={{ transformBox: "fill-box" }} />
-          <circle cx={s.x} cy={s.y} r="7" fill="#1fa9ad" stroke="#fff" strokeWidth="3" />
+          <circle cx={s.x} cy={s.y} r="10" fill="#314490" opacity=".35" className="origin-center" style={{ transformBox: "fill-box" }} />
+          <circle cx={s.x} cy={s.y} r="7" fill="#314490" stroke="#fff" strokeWidth="3" />
           <g transform={`translate(${Math.min(s.x + 16, 390 - (s.label.length * 7 + 22))} ${s.y - 34})`}>
-            <rect width={s.label.length * 7 + 22} height="26" rx="13" fill={dark ? "#ffffff" : "#142942"} />
-            <text x="11" y="17" fontSize="12" fontWeight="600" fontFamily="Inter, sans-serif" fill={dark ? "#142942" : "#fff"}>
+            <rect width={s.label.length * 7 + 22} height="26" rx="13" fill={dark ? "#ffffff" : "#1f3a5c"} />
+            <text x="11" y="17" fontSize="12" fontWeight="600" fontFamily="Inter, sans-serif" fill={dark ? "#1f3a5c" : "#fff"}>
               {s.label}
             </text>
           </g>

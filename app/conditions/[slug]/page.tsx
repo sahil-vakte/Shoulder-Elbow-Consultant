@@ -75,7 +75,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
         </div>
       </PageHero>
 
-      <div className="container-x grid gap-14 py-16 lg:grid-cols-[220px_1fr_300px]">
+      <div className="container-x section grid gap-12 lg:grid-cols-[220px_1fr_300px]">
         <aside className="hidden lg:block"><div className="sticky top-32"><Toc items={toc} /></div></aside>
 
         <article className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-navy-800 prose-a:text-royal-600 prose-li:my-1 prose-p:text-muted">
@@ -101,12 +101,12 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
             <h2>Treatment options</h2>
             <div className="not-prose mt-6 grid gap-5 md:grid-cols-2">
               <div className="rounded-3xl border border-ice-200 bg-white p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-aqua-500">Non-surgical</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-sky-500">Non-surgical</p>
                 <ul className="tick-list mt-4 space-y-3 text-[15px] text-navy-800">{c.nonSurgical.map((s) => <li key={s}>{s}</li>)}</ul>
               </div>
               <div className="rounded-3xl bg-navy-800 p-6 text-white">
-                <p className="text-xs font-semibold uppercase tracking-widest text-aqua-400">Surgical</p>
-                <ul className="mt-4 space-y-3 text-[15px]">{c.surgical.map((s) => <li key={s} className="flex gap-3"><ArrowRight className="mt-1 size-4 shrink-0 text-aqua-400" />{s}</li>)}</ul>
+                <p className="text-xs font-semibold uppercase tracking-widest text-sky-400">Surgical</p>
+                <ul className="mt-4 space-y-3 text-[15px]">{c.surgical.map((s) => <li key={s} className="flex gap-3"><ArrowRight className="mt-1 size-4 shrink-0 text-sky-400" />{s}</li>)}</ul>
               </div>
             </div>
           </section>
@@ -121,8 +121,8 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
               <ul className="mt-3 list-disc space-y-1.5 pl-6 text-amber-900/90">{c.seekHelp.map((s) => <li key={s}>{s}</li>)}</ul>
             </div>
           </section>
-          <section id="faqs" className="not-prose mt-14">
-            <h2 className="font-display text-3xl font-bold">{c.name}: frequently asked questions</h2>
+          <section id="faqs" className="not-prose mt-10">
+            <h2 className="font-display text-3xl font-semibold">{c.name}: frequently asked questions</h2>
             <div className="mt-6"><Faqs items={c.faqs} /></div>
           </section>
           <div className="not-prose"><MedicalDisclaimer reviewed={CONTENT_REVIEWED} /></div>
@@ -131,7 +131,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
         <aside>
           <div className="sticky top-32 space-y-5">
             <div className="rounded-3xl bg-gradient-to-br from-royal-600 to-navy-800 p-6 text-white shadow-lift">
-              <p className="font-display text-xl font-bold">Seen within days, not months</p>
+              <p className="font-display text-xl font-semibold">Seen within days, not months</p>
               <p className="mt-2 text-sm text-white/75">Private consultation for {c.name.toLowerCase()} in Leicester, Nuneaton or Warwickshire.</p>
               <Link href="/contact" className="btn-light mt-5 w-full">Book now</Link>
               <a href={site.contact.phoneHref} className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white/90"><Phone className="size-4" />{site.contact.phone}</a>
@@ -147,7 +147,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
       </div>
 
       {tx.length > 0 && (
-        <section className="bg-ice-50 py-20">
+        <section className="bg-ice-50 section">
           <div className="container-x">
             <h2 className="h-section">Treatments for {c.name.toLowerCase()}</h2>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -157,7 +157,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
         </section>
       )}
 
-      <section className="container-x py-20">
+      <section className="container-x section">
         <h2 className="h-section">Related {c.region} conditions</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((r) => <ConditionCard key={r.slug} c={r} />)}

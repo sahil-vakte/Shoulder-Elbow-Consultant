@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <>
       <PageHero crumbs={[{ name: "Blog", path: "/blog" }]} eyebrow="Patient guides" title="Advice from the clinic" lead={<p>Practical, evidence-based guidance on shoulder and elbow problems.</p>} />
-      <section className="container-x grid gap-6 py-16 md:grid-cols-2">
+      <section className="container-x grid gap-6 section md:grid-cols-2">
         {posts.map((p, k) => (
           <Reveal key={p.slug} delay={(k % 2) * 0.06}>
             <Link href={`/blog/${p.slug}`} className="card card-hover group grid h-full overflow-hidden sm:grid-cols-[200px_1fr]">
@@ -26,7 +26,7 @@ export default function Page() {
               </div>
               <div className="flex flex-col p-6">
                 <span className="text-xs font-semibold uppercase tracking-widest text-royal-600">{p.tag}</span>
-                <h2 className="mt-2 font-display text-xl font-bold leading-snug group-hover:text-royal-600">{p.title}</h2>
+                <h2 className="mt-2 font-display text-xl font-semibold leading-snug group-hover:text-royal-600">{p.title}</h2>
                 <p className="mt-2 flex-1 text-sm text-muted">{p.excerpt}</p>
                 <p className="mt-4 flex gap-4 text-xs text-muted">
                   <span className="flex items-center gap-1"><Calendar className="size-3.5" />{new Date(p.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>

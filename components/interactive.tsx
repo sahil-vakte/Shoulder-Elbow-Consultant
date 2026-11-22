@@ -85,5 +85,5 @@ export function Toc({ items }: { items: { id: string; label: string }[] }) {
 export function ReadingProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
-  return <motion.div style={{ scaleX }} className="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-gradient-to-r from-royal-600 to-aqua-400" />;
+  return <motion.div style={{ scaleX }} className="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-gradient-to-r from-royal-600 to-sky-400" />;
 }

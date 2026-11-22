@@ -21,7 +21,7 @@ export function MobileCta() {
           <a href={site.contact.phoneHref} className="flex flex-1 items-center justify-center gap-2 rounded-full bg-white/10 py-3 text-sm font-semibold text-white">
             <Phone className="size-4" /> Call
           </a>
-          <Link href="/contact" className="flex flex-1 items-center justify-center gap-2 rounded-full bg-aqua-400 py-3 text-sm font-semibold text-navy-900">
+          <Link href="/contact" className="flex flex-1 items-center justify-center gap-2 rounded-full bg-sky-400 py-3 text-sm font-semibold text-navy-900">
             <CalendarCheck className="size-4" /> Book
           </Link>
         </motion.div>
@@ -63,7 +63,7 @@ export function ConsentAndAnalytics() {
         {ready && consent === null && (
           <motion.div role="dialog" aria-label="Cookie preferences" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 30 }}
             className="fixed bottom-4 left-4 right-4 z-[70] max-w-md rounded-3xl border border-ice-200 bg-white p-6 shadow-lift sm:right-auto">
-            <p className="font-display text-base font-bold text-navy-800">Your privacy</p>
+            <p className="font-display text-base font-semibold text-navy-800">Your privacy</p>
             <p className="mt-2 text-sm text-muted">
               We use essential cookies to run this site and, with your permission, analytics cookies to understand how it's used. See our <Link href="/cookies" className="font-semibold text-royal-600 underline">cookie policy</Link>.
             </p>

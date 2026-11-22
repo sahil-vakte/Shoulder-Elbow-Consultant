@@ -66,20 +66,20 @@ export default function RegionHub({ region }: { region: Region }) {
         <Link href="/contact" className="btn-primary"><CalendarCheck className="size-4" /> Book a {region} consultation</Link>
       </PageHero>
 
-      <section className="container-x py-16">
+      <section className="container-x section">
         <div className="grid gap-10 lg:grid-cols-2">
           {c.intro.map((p) => <Reveal key={p.slice(0, 20)}><p className="text-lg leading-relaxed text-muted">{p}</p></Reveal>)}
         </div>
       </section>
 
-      <section className="container-x pb-20">
+      <section className="container-x section">
         <SectionHead eyebrow="Conditions" title={`${region === "shoulder" ? "Shoulder" : "Elbow"} conditions we treat`} />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((x, k) => <Reveal key={x.slug} delay={(k % 3) * 0.05}><ConditionCard c={x} /></Reveal>)}
         </div>
       </section>
 
-      <section className="bg-ice-50 py-20">
+      <section className="bg-ice-50 section">
         <div className="container-x">
           <SectionHead eyebrow="Treatments" title={`${region === "shoulder" ? "Shoulder" : "Elbow"} treatments`} />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -88,7 +88,7 @@ export default function RegionHub({ region }: { region: Region }) {
         </div>
       </section>
 
-      <section className="container-x grid gap-12 py-20 lg:grid-cols-[1fr_1.4fr]">
+      <section className="container-x grid gap-12 section lg:grid-cols-[1fr_1.4fr]">
         <SectionHead eyebrow="FAQs" title={`${region === "shoulder" ? "Shoulder" : "Elbow"} pain questions`} />
         <Faqs items={c.faqs} />
       </section>

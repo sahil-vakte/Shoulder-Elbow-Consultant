@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <>
       <PageHero crumbs={[{ name: "Conditions", path: "/conditions" }]} eyebrow="Conditions A–Z" title="Shoulder & elbow conditions" lead={<p>Search by symptom or browse {conditions.length} detailed, specialist-reviewed guides.</p>} />
-      <section className="container-x py-16"><ConditionsExplorer items={conditions} /></section>
+      <section className="container-x section"><ConditionsExplorer items={conditions} /></section>
       <CtaBand />
     </>
   );

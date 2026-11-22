@@ -16,9 +16,9 @@ export default function Footer() {
           <Image src="/brand/logo-horizontal-reverse.svg" alt={site.brand} width={260} height={72} className="h-14 w-auto" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed">{site.description}</p>
           <ul className="mt-6 space-y-3 text-sm">
-            <li><a className="flex items-center gap-3 hover:text-white" href={site.contact.phoneHref}><Phone className="size-4 text-aqua-400" /> {site.contact.phone}</a></li>
-            <li><a className="flex items-center gap-3 hover:text-white" href={`mailto:${site.contact.email}`}><Mail className="size-4 text-aqua-400" /> {site.contact.email}</a></li>
-            <li className="flex items-center gap-3"><Clock className="size-4 text-aqua-400" /> {site.contact.hours}</li>
+            <li><a className="flex items-center gap-3 hover:text-white" href={site.contact.phoneHref}><Phone className="size-4 text-sky-400" /> {site.contact.phone}</a></li>
+            <li><a className="flex items-center gap-3 hover:text-white" href={`mailto:${site.contact.email}`}><Mail className="size-4 text-sky-400" /> {site.contact.email}</a></li>
+            <li className="flex items-center gap-3"><Clock className="size-4 text-sky-400" /> {site.contact.hours}</li>
           </ul>
         </div>
 
@@ -47,7 +47,7 @@ export default function Footer() {
                 return (
                   <li key={l.slug}>
                     <Link className="flex gap-2 hover:text-white" href={`/locations/${l.slug}`}>
-                      <MapPin className="mt-0.5 size-4 shrink-0 text-aqua-400" />
+                      <MapPin className="mt-0.5 size-4 shrink-0 text-sky-400" />
                       <span>
                         <span className="block font-semibold text-white">{l.name}</span>
                         {c && <span className="text-xs">{c.name}</span>}

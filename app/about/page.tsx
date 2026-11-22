@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Award, BookOpen, GraduationCap, Hospital, ShieldCheck, Stethoscope } from "lucide-react";
-import { PageHero, CtaBand, JsonLd, SectionHead } from "@/components/ui";
+import { PageHero, CtaBand, JsonLd } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import { site, clinics } from "@/lib/site";
 import { pageMeta, abs } from "@/lib/seo";
@@ -24,7 +24,7 @@ export default function Page() {
         lead={<p>{c.title}. Fellowship-trained in shoulder and elbow surgery and dedicated exclusively to the upper limb.</p>}
         aside={
           <div className="relative mx-auto max-w-sm">
-            <div className="absolute -inset-3 rotate-3 rounded-[2.5rem] bg-gradient-to-br from-royal-600 to-aqua-500" />
+            <div className="absolute -inset-3 rotate-3 rounded-[2.5rem] bg-gradient-to-br from-royal-600 to-sky-500" />
             <Image src={c.photo} alt={`${c.name}, ${c.title}`} width={600} height={750} priority className="relative aspect-[4/5] w-full rounded-[2.5rem] object-cover shadow-lift" />
           </div>
         }
@@ -32,7 +32,7 @@ export default function Page() {
         <Link href="/contact" className="btn-primary">Book a consultation</Link>
       </PageHero>
 
-      <section className="container-x grid gap-14 py-16 lg:grid-cols-[1.4fr_1fr]">
+      <section className="container-x grid gap-12 section lg:grid-cols-[1.4fr_1fr]">
         <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-navy-800 prose-p:text-muted">
           {/* ⚠️ TODO: replace with the consultant's own biography (training, fellowships, NHS post, research, interests). */}
           <h2>About {c.name}</h2>
@@ -77,7 +77,6 @@ export default function Page() {
           </Reveal>
         </aside>
       </section>
-      <section className="container-x pb-8"><SectionHead title="Ready to talk about your shoulder or elbow?" /></section>
       <CtaBand />
     </>
   );

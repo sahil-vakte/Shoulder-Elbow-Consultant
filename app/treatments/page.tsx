@@ -20,7 +20,7 @@ export default function Page() {
         const list = treatments.filter((t) => t.category === g);
         if (!list.length) return null;
         return (
-          <section key={g} className="container-x py-12">
+          <section key={g} className="container-x section">
             <SectionHead title={g} />
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((t, k) => <Reveal key={t.slug} delay={k * 0.05}><TreatmentCard t={t} /></Reveal>)}

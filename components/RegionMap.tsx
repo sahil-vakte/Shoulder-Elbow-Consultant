@@ -25,14 +25,14 @@ export default function RegionMap({ highlight, className }: { highlight?: "leice
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className={className} role="img" aria-label="Map of clinic catchment across Leicestershire and Warwickshire">
       <defs>
-        <radialGradient id="rm-glow"><stop offset="0" stopColor="#3cc6c9" stopOpacity=".45" /><stop offset="1" stopColor="#3cc6c9" stopOpacity="0" /></radialGradient>
-        <pattern id="rm-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#6b80cf" opacity=".22" /></pattern>
+        <radialGradient id="rm-glow"><stop offset="0" stopColor="#7d8fd0" stopOpacity=".45" /><stop offset="1" stopColor="#7d8fd0" stopOpacity="0" /></radialGradient>
+        <pattern id="rm-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#7d8fd0" opacity=".22" /></pattern>
       </defs>
       <rect width={W} height={H} rx="28" fill="url(#rm-dots)" />
       {/* motorway-style connectors (illustrative) */}
-      <path d={`M${px(-1.206)} ${py(52.772)} L${px(-1.133)} ${py(52.636)} L${px(-1.2)} ${py(52.456)} L${px(-1.265)} ${py(52.37)}`} stroke="#6b80cf" strokeOpacity=".35" strokeWidth="3" fill="none" strokeDasharray="1 7" strokeLinecap="round" />
-      <path d={`M${px(-1.133)} ${py(52.636)} L${px(-1.373)} ${py(52.541)} L${px(-1.511)} ${py(52.408)} L${px(-1.536)} ${py(52.292)}`} stroke="#6b80cf" strokeOpacity=".35" strokeWidth="3" fill="none" strokeDasharray="1 7" strokeLinecap="round" />
-      <path d={`M${px(-1.551)} ${py(52.578)} L${px(-1.465)} ${py(52.523)} L${px(-1.373)} ${py(52.541)} L${px(-1.265)} ${py(52.37)}`} stroke="#6b80cf" strokeOpacity=".25" strokeWidth="3" fill="none" strokeDasharray="1 7" strokeLinecap="round" />
+      <path d={`M${px(-1.206)} ${py(52.772)} L${px(-1.133)} ${py(52.636)} L${px(-1.2)} ${py(52.456)} L${px(-1.265)} ${py(52.37)}`} stroke="#7d8fd0" strokeOpacity=".35" strokeWidth="3" fill="none" strokeDasharray="1 7" strokeLinecap="round" />
+      <path d={`M${px(-1.133)} ${py(52.636)} L${px(-1.373)} ${py(52.541)} L${px(-1.511)} ${py(52.408)} L${px(-1.536)} ${py(52.292)}`} stroke="#7d8fd0" strokeOpacity=".35" strokeWidth="3" fill="none" strokeDasharray="1 7" strokeLinecap="round" />
+      <path d={`M${px(-1.551)} ${py(52.578)} L${px(-1.465)} ${py(52.523)} L${px(-1.373)} ${py(52.541)} L${px(-1.265)} ${py(52.37)}`} stroke="#7d8fd0" strokeOpacity=".25" strokeWidth="3" fill="none" strokeDasharray="1 7" strokeLinecap="round" />
       {(Object.keys(hubs) as (keyof typeof hubs)[]).map((k) => {
         const t = hubs[k];
         const on = !highlight || highlight === k;
@@ -42,8 +42,8 @@ export default function RegionMap({ highlight, className }: { highlight?: "leice
         const on = !highlight || highlight === t.area;
         return (
           <g key={t.n} opacity={on ? 1 : 0.4}>
-            <circle cx={px(t.lng)} cy={py(t.lat)} r={t.major ? 7 : 4.5} fill={t.major ? "#314490" : "#142942"} stroke="#fff" strokeWidth="2.5" />
-            <text x={px(t.lng) + 11} y={py(t.lat) + 4} fontSize={t.major ? 15 : 12} fontWeight={t.major ? 700 : 500} fontFamily="Inter, sans-serif" fill="#142942">{t.n}</text>
+            <circle cx={px(t.lng)} cy={py(t.lat)} r={t.major ? 7 : 4.5} fill={t.major ? "#314490" : "#1f3a5c"} stroke="#fff" strokeWidth="2.5" />
+            <text x={px(t.lng) + 11} y={py(t.lat) + 4} fontSize={t.major ? 15 : 12} fontWeight={t.major ? 700 : 500} fontFamily="Inter, sans-serif" fill="#1f3a5c">{t.n}</text>
           </g>
         );
       })}
